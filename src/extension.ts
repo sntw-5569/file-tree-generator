@@ -37,17 +37,17 @@ export function activate(context: vscode.ExtensionContext) {
                 let pipe = paths.indexOf(item) === paths.length - 1 ? '┗ ' : '┣ ';
                 
                 if (fs.statSync(fullPath).isDirectory()) {
-                    treeText += format(deps, pipe, '🗂' + item.toString());
+                    treeText += format(deps, pipe, '📂' + item.toString());
                     treeText += entryTrees(fullPath, deps + 1);
                 } else {
-                    treeText += format(deps, pipe, '📄' + item.toString());
+                    treeText += format(deps, pipe, '📜' + item.toString());
                 }
             });
             return treeText;
         };
         // Display a Tree text
-        let tree = '<bold>' + path.basename(el.path) 
-                        + '</bold><br>' + entryTrees(el.path, 0);
+        let tree = '<bold>📦' + path.basename(el.fsPath) 
+                        + '</bold><br>' + entryTrees(el.fsPath, 0);
         let tree_col = vscode.window.createWebviewPanel('text', 'Generate Tree Text',
             { viewColumn: vscode.ViewColumn.Active });
         tree_col.webview.html = OutputElements.Template.replace('--REP--', tree);
