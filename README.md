@@ -11,6 +11,9 @@ this extension is Directory and Files convert tree text.
 4. processing to generate.
 
 ## release
+- 1.0.3
+  Multi OS compatible.
+
 - 1.0.2
   bug fix for windows.
 
