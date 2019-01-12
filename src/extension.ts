@@ -95,11 +95,10 @@ class OutputElements {
       </head>
       <body>
         <div class="head">
-          <button id="icon-switch" class="btn-ftg"
+          <div id="icon-switch" class="btn-ftg"
            onclick="switchVisibility();">
           icon off
-          </button>
-        <hr>
+          </div>
         </div>
         <pre id="tree-panel">--REP--</pre>
         <script type="text/javascript">
@@ -116,6 +115,7 @@ class OutputElements {
                 iconList.forEach(icon => {
                     icon.style.display = visible;
                 })
+                window.focus();
             }
         </script>
       </body>

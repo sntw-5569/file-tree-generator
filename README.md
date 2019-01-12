@@ -11,8 +11,9 @@ this extension is Directory and Files convert tree text.
 4. processing to generate.
 
 ## release
-- 1.1.0
+- 1.1.0 -> 1.1.1
   add feature to switch path icon visible.
+  bug fix to can't copy by select all.
 
 - 1.0.3
   Multi OS compatible.
