@@ -55,7 +55,10 @@ export function entryTrees (trgPath: string, deps: number) {
         let fullPath = path.join(trgPath, item.toString());
         let pipe = paths.indexOf(item) === paths.length - 1 ? '┗ ' : '┣ ';
         
-        if (fs.lstatSync(fullPath).isDirectory()) {
+        if (fs.lstatSync(fullPath).isSymbolicLink()) {
+            treeText += format(deps, pipe, '<span class="t-icon" name="icons">🔗</span>' + item.toString());
+        }
+        else if (fs.lstatSync(fullPath).isDirectory()) {
             treeText += format(deps, pipe, '<span class="t-icon" name="icons">📂</span>' + item.toString());
             treeText += entryTrees(fullPath, deps + 1);
         } else {
